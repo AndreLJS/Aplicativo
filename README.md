@@ -5,10 +5,6 @@
 - React Native / Expo - Mobile
 - SQLite - Banco de dados
 
-## Releases
-
-No final de cada dia criei um release com versão do código do dia e com as minhas anotações
-
 ## Instalação
 
 Para executar esse repositório baixe-o para sua maquina ou de um `Git Clone`
