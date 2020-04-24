@@ -7,12 +7,20 @@ module.exports = {
     const [count] = await connection("vagas").count();
 
     const vagas = await connection("vagas")
+      .join("company", "company.id", "=", "vagas.company_id")
       .limit(5)
       .offset((page - 1) * 5)
-      .select("*");
+      .select([
+        "vagas.*",
+        "company.name",
+        "company.email",
+        "company.whatsapp",
+        "company.city",
+        "company.uf",
+      ]);
+    const total = count["count(*)"] || count["count"];
 
-    res.header("X-Total-Count", count["count(*)"]);
-
+    res.header("x-total-count", total);
     return res.json(vagas);
   },
   async store(req, res) {
