@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   FlatList,
   RefreshControl,
+  TextInput,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -74,9 +75,7 @@ export default function Vagas() {
         </Text>
       </View>
 
-      <Text style={styles.title}>Bem-vindo!</Text>
-      <Text style={styles.description}>Veja as vagas abaixo.</Text>
-
+      <View style={styles.search}></View>
       <FlatList
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -89,25 +88,16 @@ export default function Vagas() {
         onEndReachedThreshold={0.2}
         renderItem={({ item: vaga }) => (
           <View style={styles.vaga}>
-            <Text style={styles.vagaProperty}>Empresa:</Text>
-            <Text style={styles.vagaValue}>{vaga.name}</Text>
+            <Image source={logoImg} />
 
-            <Text style={styles.vagaProperty}>Vaga:</Text>
-            <Text style={styles.vagaValue}>{vaga.title}</Text>
+            <Text style={styles.vagaName}>{vaga.name}</Text>
 
-            <Text style={styles.vagaProperty}>Qualificação:</Text>
-            <Text style={styles.vagaValue}>{vaga.qualification}</Text>
-
-            <Text style={styles.vagaProperty}>Formação:</Text>
-            <Text style={styles.vagaValue}>{vaga.formation}</Text>
-
-            <Text style={styles.vagaProperty}>Salário:</Text>
-            <Text style={styles.vagaValue}>
-              {Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              }).format(vaga.value)}
+            <Text style={styles.detailsLocation}>
+              <Feather name="map-pin" size={16} color="#949494" />
+              {vaga.city}/{vaga.uf}
             </Text>
+
+            <Text style={styles.vagaValue}>{vaga.title}</Text>
 
             <TouchableOpacity
               style={styles.detailsButton}

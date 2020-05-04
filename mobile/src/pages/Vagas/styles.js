@@ -48,6 +48,14 @@ export default StyleSheet.create({
     marginBottom: 16,
   },
 
+  search: {
+    padding: 24,
+    borderRadius: 8,
+    backgroundColor: "#FFF",
+    marginTop: 20,
+    marginBottom: 3,
+  },
+
   vagaProperty: {
     fontSize: 14,
     color: "#41414d",
@@ -58,7 +66,15 @@ export default StyleSheet.create({
     marginTop: 8,
     fontSize: 15,
     marginBottom: 24,
-    color: "#737380",
+    fontWeight: "bold",
+    color: "#1f1f24",
+  },
+  vagaName: {
+    marginTop: 8,
+    fontSize: 19,
+    marginBottom: 24,
+    fontWeight: "bold",
+    color: "#263fc7",
   },
 
   detailsButton: {
@@ -69,6 +85,13 @@ export default StyleSheet.create({
 
   detailsButtonText: {
     color: "#e02041",
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+
+  detailsLocation: {
+    marginBottom: 10,
+    color: "#949494",
     fontSize: 15,
     fontWeight: "bold",
   },
